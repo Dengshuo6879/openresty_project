@@ -1,0 +1,143 @@
+2020/12/01 16:41:56 [debug] 45494#15207643: *430 [lua] CallModule.lua:312: _innerCall():     local cjson = require "cjson.safe"
+
+    --加载指定的模块
+    local ClsModule = require "NameModule"
+    local module = ClsModule:new()
+
+    --请求报文体
+    --ngx.req.read_body()
+    local request_body = ngx.req.get_body_data()
+    local request_body_obj = cjson.decode(request_body)
+
+    --调用指定的方法
+    --传入指定的参数
+    local errorCode, errorMessage, result =
+        module:SaveName((request_body_obj or {}).dsNameUUID,(request_body_obj or {}).dsName)
+
+    --释放所占用的系统资源，比如将连接放回DB/Redis连接池
+    module:release()
+
+    return errorCode, errorMessage, result
+    
+2020/12/01 16:41:56 [debug] 45494#15207643: *430 [lua] routerL0.lua:37: time spand: 8.9998245239258ms
+2020/12/01 16:48:25 [info] 45494#15207643: *434 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/01 17:18:25 [info] 45494#15207643: *435 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/01 17:48:25 [info] 45494#15207643: *436 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/01 18:18:25 [info] 45494#15207643: *437 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/01 18:48:25 [info] 45494#15207643: *438 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/01 19:18:25 [info] 45494#15207643: *439 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/01 19:48:25 [info] 45494#15207643: *440 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/01 20:18:25 [info] 45494#15207643: *441 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/01 20:48:25 [info] 45494#15207643: *442 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/01 21:18:25 [info] 45494#15207643: *443 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/01 21:48:25 [info] 45494#15207643: *444 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/01 22:18:25 [info] 45494#15207643: *445 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/01 22:48:25 [info] 45494#15207643: *446 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/01 23:18:25 [info] 45494#15207643: *447 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/01 23:48:25 [info] 45494#15207643: *448 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 00:18:25 [info] 45494#15207643: *449 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 00:48:25 [info] 45494#15207643: *450 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 01:18:25 [info] 45494#15207643: *451 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 01:48:25 [info] 45494#15207643: *452 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 02:18:25 [info] 45494#15207643: *453 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 02:48:25 [info] 45494#15207643: *454 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 03:18:25 [info] 45494#15207643: *455 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 03:48:25 [info] 45494#15207643: *456 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 04:18:25 [info] 45494#15207643: *457 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 04:48:25 [info] 45494#15207643: *458 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 05:18:25 [info] 45494#15207643: *459 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 05:48:25 [info] 45494#15207643: *460 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 06:18:25 [info] 45494#15207643: *461 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 06:48:25 [info] 45494#15207643: *462 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 07:18:25 [info] 45494#15207643: *463 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 07:48:25 [info] 45494#15207643: *464 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 08:18:25 [info] 45494#15207643: *465 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 08:48:25 [info] 45494#15207643: *466 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 09:18:25 [info] 45494#15207643: *467 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 09:48:25 [info] 45494#15207643: *468 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 10:18:25 [info] 45494#15207643: *469 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 10:48:26 [info] 45494#15207643: *470 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 11:18:26 [info] 45494#15207643: *471 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 11:49:44 [info] 45494#15207643: *472 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 12:19:44 [info] 45494#15207643: *473 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 12:49:44 [info] 45494#15207643: *474 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 13:19:44 [info] 45494#15207643: *475 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 13:49:44 [info] 45494#15207643: *476 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 14:19:44 [info] 45494#15207643: *477 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 14:49:44 [info] 45494#15207643: *478 client timed out (60: Operation timed out) while waiting for request, client: 127.0.0.1, server: 0.0.0.0:8888
+2020/12/02 19:06:19 [debug] 45494#15207643: *479 [lua] CallModule.lua:165: _check_param_list(): param_name: dsName
+2020/12/02 19:06:19 [debug] 45494#15207643: *479 [lua] CallModule.lua:166: _check_param_list(): not cur_checked_param or cur_checked_param == ""
+2020/12/02 19:06:19 [error] 45494#15207643: *479 lua entry thread aborted: runtime error: /Users/mac/openresty-test//services/utils/CallModule.lua:171: attempt to concatenate field 'MSG_REQUEST_PARAMS_WRONG' (a nil value)
+stack traceback:
+coroutine 0:
+	/Users/mac/openresty-test//services/utils/CallModule.lua: in function '_check_param_list'
+	/Users/mac/openresty-test//services/utils/CallModule.lua:152: in function '_innerCheck'
+	/Users/mac/openresty-test//services/utils/CallModule.lua:139: in function 'check'
+	/Users/mac/openresty-test/services/http/checkerL0.lua:5: in main chunk, client: 127.0.0.1, server: *.*, request: "POST /DSApiMgr/SaveName HTTP/1.1", host: "localhost:8888"
+2020/12/02 19:07:17 [debug] 45494#15207643: *480 [lua] CallModule.lua:165: _check_param_list(): param_name: dsName
+2020/12/02 19:07:17 [debug] 45494#15207643: *480 [lua] CallModule.lua:166: _check_param_list(): not cur_checked_param or cur_checked_param == ""
+2020/12/02 19:07:17 [error] 45494#15207643: *480 lua entry thread aborted: runtime error: /Users/mac/openresty-test//services/utils/CallModule.lua:171: attempt to concatenate field 'MSG_REQUEST_PARAMS_WRONG' (a nil value)
+stack traceback:
+coroutine 0:
+	/Users/mac/openresty-test//services/utils/CallModule.lua: in function '_check_param_list'
+	/Users/mac/openresty-test//services/utils/CallModule.lua:152: in function '_innerCheck'
+	/Users/mac/openresty-test//services/utils/CallModule.lua:139: in function 'check'
+	/Users/mac/openresty-test/services/http/checkerL0.lua:5: in main chunk, client: 127.0.0.1, server: *.*, request: "POST /DSApiMgr/SaveName HTTP/1.1", host: "localhost:8888"
+2020/12/02 19:07:30 [debug] 65206#15931773: *482 [lua] CallModule.lua:165: _check_param_list(): param_name: dsName
+2020/12/02 19:07:30 [debug] 65206#15931773: *482 [lua] CallModule.lua:166: _check_param_list(): not cur_checked_param or cur_checked_param == ""
+2020/12/02 19:07:30 [error] 65206#15931773: *482 lua entry thread aborted: runtime error: /Users/mac/openresty-test//services/utils/CallModule.lua:171: attempt to concatenate field 'MSG_REQUEST_PARAMS_WRONG' (a nil value)
+stack traceback:
+coroutine 0:
+	/Users/mac/openresty-test//services/utils/CallModule.lua: in function '_check_param_list'
+	/Users/mac/openresty-test//services/utils/CallModule.lua:152: in function '_innerCheck'
+	/Users/mac/openresty-test//services/utils/CallModule.lua:139: in function 'check'
+	/Users/mac/openresty-test/services/http/checkerL0.lua:5: in main chunk, client: 127.0.0.1, server: *.*, request: "POST /DSApiMgr/SaveName HTTP/1.1", host: "localhost:8888"
+2020/12/02 19:07:59 [debug] 65222#15932122: *484 [lua] CallModule.lua:165: _check_param_list(): param_name: dsName
+2020/12/02 19:07:59 [debug] 65222#15932122: *484 [lua] CallModule.lua:166: _check_param_list(): not cur_checked_param or cur_checked_param == ""
+2020/12/02 19:07:59 [error] 65222#15932122: *484 lua entry thread aborted: runtime error: /Users/mac/openresty-test//services/utils/CallModule.lua:171: attempt to concatenate field 'MSG_REQUEST_PARAMS_WRONG' (a nil value)
+stack traceback:
+coroutine 0:
+	/Users/mac/openresty-test//services/utils/CallModule.lua: in function '_check_param_list'
+	/Users/mac/openresty-test//services/utils/CallModule.lua:152: in function '_innerCheck'
+	/Users/mac/openresty-test//services/utils/CallModule.lua:139: in function 'check'
+	/Users/mac/openresty-test/services/http/checkerL0.lua:5: in main chunk, client: 127.0.0.1, server: *.*, request: "POST /DSApiMgr/SaveName HTTP/1.1", host: "localhost:8888"
+2020/12/02 19:10:04 [debug] 65255#15933129: *487 [lua] CallModule.lua:165: _check_param_list(): param_name: dsName
+2020/12/02 19:10:04 [debug] 65255#15933129: *487 [lua] CallModule.lua:166: _check_param_list(): not cur_checked_param or cur_checked_param == ""
+2020/12/02 19:10:04 [error] 65255#15933129: *487 lua entry thread aborted: runtime error: /Users/mac/openresty-test//services/utils/CallModule.lua:171: attempt to concatenate field 'MSG_REQUEST_PARAMS_WRONG' (a nil value)
+stack traceback:
+coroutine 0:
+	/Users/mac/openresty-test//services/utils/CallModule.lua: in function '_check_param_list'
+	/Users/mac/openresty-test//services/utils/CallModule.lua:152: in function '_innerCheck'
+	/Users/mac/openresty-test//services/utils/CallModule.lua:139: in function 'check'
+	/Users/mac/openresty-test/services/http/checkerL0.lua:5: in main chunk, client: 127.0.0.1, server: *.*, request: "POST /DSApiMgr/SaveName HTTP/1.1", host: "localhost:8888"
+2020/12/02 19:10:04 [debug] 65255#15933129: *488 [lua] CallModule.lua:165: _check_param_list(): param_name: dsName
+2020/12/02 19:10:04 [debug] 65255#15933129: *488 [lua] CallModule.lua:166: _check_param_list(): not cur_checked_param or cur_checked_param == ""
+2020/12/02 19:10:04 [error] 65255#15933129: *488 lua entry thread aborted: runtime error: /Users/mac/openresty-test//services/utils/CallModule.lua:171: attempt to concatenate field 'MSG_REQUEST_PARAMS_WRONG' (a nil value)
+stack traceback:
+coroutine 0:
+	/Users/mac/openresty-test//services/utils/CallModule.lua: in function '_check_param_list'
+	/Users/mac/openresty-test//services/utils/CallModule.lua:152: in function '_innerCheck'
+	/Users/mac/openresty-test//services/utils/CallModule.lua:139: in function 'check'
+	/Users/mac/openresty-test/services/http/checkerL0.lua:5: in main chunk, client: 127.0.0.1, server: *.*, request: "POST /DSApiMgr/SaveName HTTP/1.1", host: "localhost:8888"
+2020/12/02 19:10:41 [debug] 65255#15933129: *489 [lua] CallModule.lua:312: _innerCall():     local cjson = require "cjson.safe"
+
+    --加载指定的模块
+    local ClsModule = require "NameModule"
+    local module = ClsModule:new()
+
+    --请求报文体
+    --ngx.req.read_body()
+    local request_body = ngx.req.get_body_data()
+    local request_body_obj = cjson.decode(request_body)
+
+    --调用指定的方法
+    --传入指定的参数
+    local errorCode, errorMessage, result =
+        module:SaveName((request_body_obj or {}).dsNameUUID,(request_body_obj or {}).dsName)
+
+    --释放所占用的系统资源，比如将连接放回DB/Redis连接池
+    module:release()
+
+    return errorCode, errorMessage, result
+    
+2020/12/02 19:10:41 [debug] 65255#15933129: *489 [lua] routerL0.lua:37: time spand: 12.00008392334ms
